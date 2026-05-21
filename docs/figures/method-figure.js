@@ -65,7 +65,7 @@
               ${modelBox("VDM", "LoRA adapters")}
               ${arrow()}
               <div class="method-endpoint">
-                <span>Output I&#770;(x)</span>
+                <span>Output I(y)</span>
                 ${colorGrid(target, "Output grid rendered as an image")}
               </div>
             </div>
@@ -76,14 +76,14 @@
             <h3>LLM branch</h3>
             <div class="method-branch-flow">
               <div class="method-endpoint">
-                <span>Input J(x) tokens</span>
+                <span>Input J(x)</span>
                 ${tokenRows(input, "Input grid serialized as tokens")}
               </div>
               ${arrow("red-arrow")}
               ${modelBox("LLM", "LoRA adapters")}
               ${arrow("red-arrow")}
               <div class="method-endpoint">
-                <span>Output J&#770;(x) tokens</span>
+                <span>Output J(y)</span>
                 ${tokenRows(target, "Output grid serialized as tokens")}
               </div>
             </div>
