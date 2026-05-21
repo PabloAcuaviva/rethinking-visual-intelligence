@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Project page for Rethinking Visual Intelligence: Insights from Video Pretraining."
+    />
+    <title>Rethinking Visual Intelligence: Insights from Video Pretraining</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Project home">
+        <span class="brand-mark"></span>
+        <span>Visual Intelligence</span>
+      </a>
+      <nav class="nav-links" aria-label="Page sections">
+        <a href="#method">Method</a>
+        <a href="#results">Explore Results</a>
+        <a href="https://github.com/PabloAcuaviva/visual-intelligence" target="_blank" rel="noopener noreferrer">Code</a>
+        <a href="#citation">Citation</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-bg" aria-hidden="true">
+          <img src="assets/examples/vdm_maze_steps300_158.png" alt="" />
+          <img src="assets/examples/vdm_gol_n30_028.png" alt="" />
+          <img src="assets/examples/arc_agi_005/vdm_arc_agi_005.png" alt="" />
+          <img src="assets/examples/vdm_navigation2d_any_to_any_steps300_133.png" alt="" />
+          <img src="assets/examples/arc_agi_384/vdm_arc_agi_384.png" alt="" />
+          <img src="assets/examples/vdm_gol_seeds_n30_172.png" alt="" />
+        </div>
+        <div class="section-inner hero-inner">
+          <p class="eyebrow">ICML 2026</p>
+          <h1 id="hero-title">Rethinking Visual Intelligence: Insights from Video Pretraining</h1>
+          <p class="hero-copy">
+            We compare pretrained video diffusion models and large language models under a
+            matched LoRA adaptation protocol for structured visual tasks.
+          </p>
+          <div class="hero-actions" aria-label="Quick links">
+            <a class="button primary" href="#results">Explore Results</a>
+            <a class="button secondary" href="#method">Method</a>
+            <a class="button secondary" href="https://github.com/PabloAcuaviva/visual-intelligence" target="_blank" rel="noopener noreferrer">Code</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section abstract-section">
+        <div class="section-inner abstract-inner">
+          <p class="section-kicker">Abstract</p>
+          <p class="abstract-text">
+            Large language models (LLMs) have demonstrated that large-scale pretraining enables
+            systems to adapt rapidly to new problems with little supervision in the language
+            domain. This success, however, has not translated as effectively to the visual
+            domain, where models, including LLMs, continue to struggle with compositional
+            understanding, sample efficiency, and general-purpose problem-solving. We
+            investigate Video Diffusion Models (VDMs) as a promising direction for bridging
+            this gap. Pretraining on spatiotemporal data endows these models with strong
+            inductive biases for structure and dynamics, which we hypothesize can support
+            broad task adaptability. To test this, we design a controlled evaluation in which
+            both a pretrained LLM and a pretrained VDM are equipped with lightweight adapters
+            and presented with tasks in their natural modalities. Across benchmarks including
+            ARC-AGI, ConceptARC, visual games, route planning, and cellular automata, VDMs
+            demonstrate higher data efficiency than their language counterparts. Taken
+            together, our results indicate that video pretraining offers inductive biases that
+            support progress toward visual foundation models.
+          </p>
+        </div>
+      </section>
+
+      <section class="section method-section" id="method" aria-labelledby="method-title">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="section-kicker">Method</p>
+            <h2 id="method-title">A matched adaptation protocol</h2>
+            <p>
+              Each task is an input-output grid pair. We use the same examples, train/test
+              split, LoRA-only adaptation, frozen pretrained backbone, and exact-match
+              evaluation for both model families. The VDM receives the pair as colored images
+              in the visual domain, while the LLM receives the same grids as serialized
+              arrays.
+            </p>
+          </div>
+
+          <div id="method-figure"></div>
+        </div>
+      </section>
+
+      <section class="section results-section" id="results" aria-labelledby="results-title">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="section-kicker">Explore Results</p>
+            <h2 id="results-title">Main paper results</h2>
+          </div>
+
+          <section class="result-family" id="arc-results" aria-labelledby="arc-results-title">
+            <div class="result-family-heading">
+              <h3 id="arc-results-title">ARC-AGI &amp; ConceptARC</h3>
+            </div>
+            <div class="result-grid arc-result-grid">
+              <figure>
+                <div id="concept-radar-figure"></div>
+                <figcaption>ConceptARC results across visual concepts and model families.</figcaption>
+              </figure>
+              <figure class="compact-figure-card">
+                <div id="arc-venn-figure"></div>
+                <figcaption>ARC-AGI solved-task overlap between the two matched baselines.</figcaption>
+              </figure>
+            </div>
+            <div data-qual-group="arc"></div>
+          </section>
+
+          <section class="result-family" id="games-results" aria-labelledby="games-results-title">
+            <div class="result-family-heading">
+              <h3 id="games-results-title">Games</h3>
+            </div>
+            <figure>
+              <div id="games-figure"></div>
+              <figcaption>Accuracy as a function of training set size across visual game tasks.</figcaption>
+            </figure>
+            <div data-qual-group="games"></div>
+          </section>
+
+          <section class="result-family" id="navigation-results" aria-labelledby="navigation-results-title">
+            <div class="result-family-heading">
+              <h3 id="navigation-results-title">Navigation</h3>
+            </div>
+            <figure>
+              <div id="navigation-figure"></div>
+              <figcaption>Accuracy as a function of training set size across route-planning tasks.</figcaption>
+            </figure>
+            <div data-qual-group="navigation"></div>
+          </section>
+
+          <section class="result-family" id="ca-results" aria-labelledby="ca-results-title">
+            <div class="result-family-heading">
+              <h3 id="ca-results-title">Cellular automata</h3>
+            </div>
+            <div class="result-grid cellular-result-grid">
+              <figure>
+                <div id="gol-threshold-figure"></div>
+                <figcaption>Training examples needed to reach threshold accuracy on Life-like rules.</figcaption>
+              </figure>
+              <figure class="span-all">
+                <div id="langton-figure"></div>
+                <figcaption>Accuracy on Langton's Ant with prediction horizons from 2 to 10 steps.</figcaption>
+              </figure>
+              <figure>
+                <div id="eca-threshold-figure"></div>
+                <figcaption>Training examples needed to reach threshold accuracy on 1D ECA rules.</figcaption>
+              </figure>
+            </div>
+            <div data-qual-group="automata"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="section citation-section" id="citation" aria-labelledby="citation-title">
+        <div class="section-inner citation-inner">
+          <div>
+            <p class="section-kicker">Citation</p>
+            <h2 id="citation-title">BibTeX</h2>
+          </div>
+          <pre><code>@inproceedings{visual_intelligence_video_pretraining_2026,
+  title     = {Rethinking Visual Intelligence: Insights from Video Pretraining},
+  booktitle = {International Conference on Machine Learning},
+  year      = {2026}
+}</code></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="section-inner">
+        <span>Rethinking Visual Intelligence: Insights from Video Pretraining</span>
+        <a href="#top">Back to top</a>
+      </div>
+    </footer>
+    <script src="figures/method-figure.js"></script>
+    <script src="figures/concept-radar-figure.js"></script>
+    <script src="figures/games-figure.js"></script>
+    <script src="figures/game-examples.js"></script>
+    <script src="figures/navigation-figure.js"></script>
+    <script src="figures/gol-threshold-figure.js"></script>
+    <script src="figures/langton-figure.js"></script>
+    <script src="figures/eca-threshold-figure.js"></script>
+    <script src="figures/arc-venn-figure.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
